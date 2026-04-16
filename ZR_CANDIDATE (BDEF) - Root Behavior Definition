@@ -1,0 +1,35 @@
+managed implementation in class zbp_r_candidate unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_CANDIDATE alias Candidate
+persistent table zrecruit_cand
+draft table zrecruit_cand_d
+lock master
+total etag LastChangedAt
+authorization master ( global ) 
+{
+  field ( readonly, numbering : managed ) CandidateUuid;
+  field ( readonly ) LastChangedAt;
+
+  create; 
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zrecruit_cand
+  {
+    CandidateUuid = candidate_uuid;
+    FirstName = first_name;
+    LastName = last_name;
+    Email = email;
+    ExpYears = exp_years;
+    Status = status;
+    LastChangedAt = last_changed_at;
+  }
+}
