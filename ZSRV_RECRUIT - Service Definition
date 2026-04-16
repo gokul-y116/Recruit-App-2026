@@ -1,0 +1,4 @@
+@EndUserText.label: 'Recruitment Service Definition'
+define service ZSRV_RECRUIT {
+  expose ZC_CANDIDATE as Candidate;
+}
