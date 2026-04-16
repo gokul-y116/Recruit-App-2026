@@ -1,0 +1,15 @@
+@EndUserText.label : 'Candidate Recruitment Table'
+@AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zrecruit_cand {
+  key client      : abap.clnt not null;
+  key candidate_uuid : sysuuid_x16 not null;
+  first_name      : abap.char(40);
+  last_name       : abap.char(40);
+  email           : abap.char(256);
+  exp_years       : abap.int1;
+  status          : abap.char(1); 
+  last_changed_at : timestampl;
+}
