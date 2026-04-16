@@ -1,0 +1,25 @@
+@EndUserText.label: 'Candidate Projection'
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Metadata.allowExtensions: true
+define root view entity ZC_CANDIDATE
+  as projection on ZR_CANDIDATE
+{
+    @UI.facet: [ { id: 'idIdentification', type: #IDENTIFICATION_REFERENCE, label: 'Candidate Info', position: 10 } ]
+    
+    key CandidateUuid,
+    
+    @UI: { lineItem: [{ position: 10, label: 'First Name' }], identification: [{ position: 10 }] }
+    FirstName,
+    
+    @UI: { lineItem: [{ position: 20, label: 'Last Name' }], identification: [{ position: 20 }] }
+    LastName,
+    
+    @UI: { lineItem: [{ position: 30, label: 'Email' }], identification: [{ position: 30 }] }
+    Email,
+    
+    @UI: { lineItem: [{ position: 40, label: 'Experience' }], identification: [{ position: 40 }] }
+    ExpYears,
+    
+    Status,
+    LastChangedAt
+}
