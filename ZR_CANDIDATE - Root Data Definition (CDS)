@@ -1,0 +1,14 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Candidate Root View'
+define root view entity ZR_CANDIDATE
+  as select from zrecruit_cand
+{
+  key candidate_uuid as CandidateUuid,
+  first_name         as FirstName,
+  last_name          as LastName,
+  email              as Email,
+  exp_years          as ExpYears,
+  status             as Status,
+  @Semantics.systemDateTime.lastChangedAt: true
+  last_changed_at    as LastChangedAt
+}
